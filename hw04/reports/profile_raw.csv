@@ -1,0 +1,76 @@
+table,column,rows,blank_count,blank_pct,distinct_count,expected_type,parse_fail_count,parse_fail_pct,whitespace_issues,shape_count,top_shapes,min,max,sample_values
+dim_advisor,advisor_id,25,0,0.0,25,numeric,0,0.0,0,2,99 (16); 9 (9),1,25,1; 2; 3; 4; 5
+dim_advisor,first_name,25,0,0.0,24,text,0,0.0,0,6,aaaaaaa (7); aaaaa (6); aaaaaaaa (4); aaaaaa (4),,,Danielle; Joshua; Jill; Patricia; Robert
+dim_advisor,last_name,25,0,0.0,24,text,0,0.0,0,7,aaaaaa (7); aaaaa (6); aaaaaaa (5); aaaaaaaa (3),,,Johnson; Walker; Rhodes; Miller; Wagner
+dim_advisor,region,25,0,0.0,5,text,0,0.0,0,4,aaaaaaaaa (16); aaa-aaaaaaaa (6); aaaa (2); aaaaaaa (1),,,Northeast; Mid-Atlantic; West; Southeast; Midwest
+dim_advisor,years_experience,25,0,0.0,17,numeric,0,0.0,0,2,99 (18); 9 (7),4,28,4; 8; 22; 6; 23
+dim_advisor,aum_target_mm,25,0,0.0,5,numeric,0,0.0,0,2,999 (14); 99 (11),50,200,100; 50; 150; 75; 200
+dim_advisor,certifications,25,0,0.0,5,text,0,0.0,0,4,"aaa (9); aaaa (6); aaa, aaa (6); aaa, aaaa (4)",,,"CFA; None; CFP; CFP, CIMA; CFP, CFA"
+dim_benchmark,benchmark_id,8,0,0.0,8,numeric,0,0.0,0,1,9 (8),1,8,1; 2; 3; 4; 5
+dim_benchmark,name,8,0,0.0,8,text,0,0.0,0,8,a&a 999 (1); aaaaaaaaa aa aaa aaaa (1); 99/99 aaaaa (1); aaaa aaaa (1),,,S&P 500; Bloomberg US Agg Bond; 60/40 Blend; MSCI EAFE; Russell 2000
+dim_benchmark,asset_class,8,0,0.0,7,text,0,0.0,0,7,aaaaa-aaaaa (2); aaaaaa (1); aaaaa aaaaaa (1); aaaaaaaaaaaaa (1),,,Equity; Fixed Income; Multi-Asset; International; Small Cap
+dim_benchmark,ticker_proxy,8,0,0.0,8,text,0,0.0,0,4,aaa (5); aaaaa_9999 (1); aaaa (1); aaaaa_aaaa (1),,,SPY; AGG; BLEND_6040; EFA; IWM
+dim_client,client_id,2525,0,0.0,2525,numeric,0,0.0,0,4,9999 (1526); 999 (900); 99 (90); 9 (9),1,2525,1; 2; 3; 4; 5
+dim_client,first_name,2525,0,0.0,505,text,0,0.0,0,10,aaaaa (669); aaaaaa (625); aaaaaaa (540); aaaa (296),,,Cassie; Michael; Victor; Justin; Rachel
+dim_client,last_name,2525,0,0.0,778,text,0,0.0,0,10,aaaaaa (643); aaaaa (627); aaaaaaa (442); aaaa (288),,,Shelton; Edwards; Hughes; Hendricks; Wallace
+dim_client,age,2525,0,0.0,53,numeric,0,0.0,0,1,99 (2525),28,80,61; 37; 38; 55; 80
+dim_client,city,2525,0,0.0,2291,text,0,0.0,0,52,aaaaaaaaaa (281); aaaaaaaaaaa (274); aaaaaaaaa (239); aaaaaaaaaaaa (178),,,Nathanland; Johnville; West Kimberlymouth; Gonzalezberg; Port Evelynmouth
+dim_client,state,2525,0,0.0,27,text,0,0.0,0,8,aa (2447); aaaaaaaaaaaa (25); aaaaaaa (15); aaa aaaa (14),,,PA; FL; TX; MA; IL
+dim_client,zip_code,2525,0,0.0,2483,text,0,0.0,0,1,99999 (2525),,,75726; 03897; 28625; 10207; 88036
+dim_client,risk_profile,2525,76,3.01,6,text,0,0.0,0,5,aaaaaaaa (762); aaaaaaaaaa aaaaaaaaaaaa (505); aaaaaaaaaaaa (471); aaaaaaaaaa aaaaaaaaaa (468),,,Moderately Aggressive; Moderately Conservative; Balanced; Conservative; Aggressive
+dim_client,client_tier,2525,0,0.0,3,text,0,0.0,0,3,aaaaaa (1529); aaa (741); aaaa (255),,,HNW; Retail; UHNW
+dim_client,primary_account_type,2525,0,0.0,5,text,0,0.0,0,5,aaaaa (548); 999 (523); aaaa aaa (489); aaaaaaa (484),,,529; Taxable; IRA; Trust; Roth IRA
+dim_client,initial_aum,2525,0,0.0,2500,numeric,0,0.0,0,8,999999.99 (1318); 9999999.99 (604); 99999999.99 (206); 99999.99 (157),50016.07,49901583.57,3070489.71; 492239.64; 2520678.81; 1067836.99; 2459269.6
+dim_client,client_since,2525,0,0.0,1651,date,0,0.0,0,1,9999-99-99 (2525),2015-01-01 00:00:00,2022-12-30 00:00:00,2016-02-07; 2020-11-18; 2022-12-20; 2018-08-13; 2017-10-11
+dim_client,advisor_id,2525,0,0.0,25,numeric,0,0.0,0,2,99 (1573); 9 (952),1,25,22; 25; 7; 20; 3
+dim_client,is_active,2525,0,0.0,2,text,0,0.0,0,2,aaaa (2349); aaaaa (176),,,True; False
+dim_date,date_id,1827,0,0.0,1827,numeric,0,0.0,0,4,999 (900); 9999 (828); 99 (90); 9 (9),1,1827,1; 2; 3; 4; 5
+dim_date,date,1827,0,0.0,1827,date,0,0.0,0,1,9999-99-99 (1827),2020-01-01 00:00:00,2024-12-31 00:00:00,2020-01-01; 2020-01-02; 2020-01-03; 2020-01-04; 2020-01-05
+dim_date,year,1827,0,0.0,5,numeric,0,0.0,0,1,9999 (1827),2020,2024,2020; 2021; 2022; 2023; 2024
+dim_date,quarter,1827,0,0.0,4,numeric,0,0.0,0,1,9 (1827),1,4,1; 2; 3; 4
+dim_date,month,1827,0,0.0,12,numeric,0,0.0,0,2,9 (1367); 99 (460),1,12,1; 2; 3; 4; 5
+dim_date,month_name,1827,0,0.0,12,text,0,0.0,0,7,aaaaaaaa (447); aaaaaaa (310); aaaaa (305); aaaa (305),,,January; February; March; April; May
+dim_date,week_of_year,1827,0,0.0,53,numeric,0,0.0,0,2,99 (1512); 9 (315),1,53,1; 2; 3; 4; 5
+dim_date,day_of_week,1827,0,0.0,7,text,0,0.0,0,4,aaaaaa (783); aaaaaaaa (522); aaaaaaaaa (261); aaaaaaa (261),,,Wednesday; Thursday; Friday; Saturday; Sunday
+dim_date,is_month_end,1827,0,0.0,2,numeric,0,0.0,0,1,9 (1827),0,1,0; 1
+dim_date,is_quarter_end,1827,0,0.0,2,numeric,0,0.0,0,1,9 (1827),0,1,0; 1
+dim_date,is_year_end,1827,0,0.0,2,numeric,0,0.0,0,1,9 (1827),0,1,0; 1
+dim_date,is_trading_day,1827,0,0.0,2,numeric,0,0.0,0,1,9 (1827),0,1,1; 0
+dim_security,security_id,500,0,0.0,500,numeric,0,0.0,0,3,999 (401); 99 (90); 9 (9),1,500,1; 2; 3; 4; 5
+dim_security,ticker,500,0,0.0,500,text,0,0.0,0,2,aaa (255); aaaa (245),,,RKX; DTOT; JZDM; QUK; PMGO
+dim_security,name,500,0,0.0,497,text,0,0.0,0,233,aaaaa aaa aaaa (14); aaaaa aaa aaa. (13); aaaaaa aaa aaaa (11); aaaaaa aaa aaa. (10),,,"Kelly-Santiago Inc.; Zuniga, Wong and Lynch Inc.; Ferguson and Sons Inc.; Ford LLC Inc.; Watts, Robinson and Nguyen Inc."
+dim_security,asset_class,500,0,0.0,4,text,0,0.0,0,4,aaaaaa (281); aaaaa aaaaaa (120); aaaaaaaaaaa (58); aaaa aaaaaaaaaa (41),,,Equity; Alternative; Fixed Income; Cash Equivalent
+dim_security,sector,500,219,43.8,12,text,0,0.0,0,8,aaaaaaaaaa (73); aaaaaaaaa (56); aaaaaaaa aaaaaaa (35); aaaaaaaaaaaaa aaaaaaaa (33),,,Materials; Utilities; Technology; Healthcare; Communication Services
+dim_security,benchmark_id,500,0,0.0,6,numeric,0,0.0,0,1,9 (500),1,7,1; 5; 4; 3; 2
+dim_security,is_etf,500,0,0.0,2,text,0,0.0,0,2,aaaaa (281); aaaa (219),,,False; True
+dim_security,expense_ratio_bps,500,281,56.2,83,numeric,0,0.0,0,2,99.9 (207); 9.9 (12),3.0,95.0,70.0; 54.0; 5.0; 32.0; 57.0
+fact_fees,fee_id,122197,0,0.0,122197,numeric,0,0.0,0,6,99999 (90000); 999999 (22198); 9999 (9000); 999 (900),1,122197,1; 2; 3; 4; 5
+fact_fees,client_id,122197,0,0.0,2500,numeric,0,0.0,0,4,9999 (72859); 999 (44291); 99 (4576); 9 (471),1,2500,1; 2; 3; 4; 5
+fact_fees,advisor_id,122197,0,0.0,25,numeric,0,0.0,0,2,99 (76635); 9 (45562),1,25,22; 25; 7; 20; 3
+fact_fees,fee_date,122197,0,0.0,60,date,0,0.0,0,1,9999-99-99 (122197),2020-01-01 00:00:00,2024-12-01 00:00:00,2020-01-01; 2020-02-01; 2020-03-01; 2020-04-01; 2020-05-01
+fact_fees,fee_type,122197,0,0.0,4,text,0,0.0,0,4,aaaaaaaaaa (71122); aaaaaaaa (32370); aaaaaaaaa (10259); aaaaaaaaaaa (8446),,,Advisory; Management; Custodial; Performance
+fact_fees,aum_basis,122197,0,0.0,121755,numeric,0,0.0,0,10,999999.99 (61310); 9999999.99 (30324); 99999999.99 (10477); 99999.99 (6884),1000.0,82386642.91,3130375.03; 3152790.69; 3240188.8; 3372037.67; 3412493.75
+fact_fees,bps_charged,122197,0,0.0,5217,numeric,0,0.0,0,3,99.99 (109848); 99.9 (12348); 999.99 (1),25.56,100.38,65.54; 64.68; 67.79; 64.29; 72.36
+fact_fees,amount,122197,0,0.0,81649,numeric,0,0.0,0,10,999.99 (63336); 9999.99 (28659); 99.99 (11167); 999.9 (7092),0.65,29412.47,1709.71; 1699.35; 1830.44; 1806.57; 2057.73
+fact_portfolio_snapshot,snapshot_id,129547,0,0.0,129547,numeric,0,0.0,0,6,99999 (90000); 999999 (29548); 9999 (9000); 999 (900),1,129547,1; 2; 3; 4; 5
+fact_portfolio_snapshot,client_id,129547,0,0.0,2500,numeric,0,0.0,0,4,9999 (77256); 999 (46933); 99 (4863); 9 (495),1,2500,1; 2; 3; 4; 5
+fact_portfolio_snapshot,advisor_id,129547,0,0.0,25,numeric,0,0.0,0,2,99 (81293); 9 (48254),1,25,22; 25; 7; 20; 3
+fact_portfolio_snapshot,benchmark_id,129547,0,0.0,3,numeric,0,0.0,0,1,9 (129547),1,8,1; 8; 3
+fact_portfolio_snapshot,snapshot_date,129547,0,0.0,60,date,0,0.0,0,1,9999-99-99 (129547),2020-01-01 00:00:00,2024-12-01 00:00:00,2020-01-01; 2020-02-01; 2020-03-01; 2020-04-01; 2020-05-01
+fact_portfolio_snapshot,year,129547,0,0.0,5,numeric,0,0.0,0,1,9999 (129547),2020,2024,2020; 2021; 2022; 2023; 2024
+fact_portfolio_snapshot,month,129547,0,0.0,12,numeric,0,0.0,0,2,9 (96272); 99 (33275),1,12,1; 2; 3; 4; 5
+fact_portfolio_snapshot,aum,129547,0,0.0,129062,numeric,0,0.0,0,10,999999.99 (65062); 9999999.99 (31976); 99999999.99 (11027); 99999.99 (7425),1000.0,82386642.91,3130375.03; 3152790.69; 3240188.8; 3372037.67; 3412493.75
+fact_portfolio_snapshot,return_ytd,129547,0,0.0,112233,numeric,300,0.23,0,23,9.999999 (74423); -9.999999 (41347); 9.99999 (7500); -9.99999 (4186),-0.993708,94.668215,0.019504; 0.026804; 0.055268; 0.098208; 0.111384
+fact_portfolio_snapshot,benchmark_return_ytd,129547,0,0.0,180,numeric,0,0.0,0,5,9.999999 (79905); -9.999999 (30576); 9.99999 (11909); -9.99999 (6546),-0.23978,0.273845,0.023115; 0.034801; 0.060634; 0.102223; 0.112182
+fact_portfolio_snapshot,active_alpha_ytd,129547,0,0.0,85398,numeric,0,0.0,0,19,9.999999 (63412); -9.999999 (52234); 9.99999 (6324); -9.99999 (5252),-1.22245,94.569541,-0.003612; -0.007997; -0.005366; -0.004014; -0.000798
+fact_portfolio_snapshot,cash_pct,129547,0,0.0,701,numeric,0,0.0,0,3,9.9999 (116653); 9.999 (11576); 9.99 (1318),0.01,0.08,0.0205; 0.0231; 0.0476; 0.0143; 0.021
+fact_portfolio_snapshot,account_type,129547,0,0.0,5,text,0,0.0,0,5,aaaaa (28221); 999 (26882); aaaa aaa (25005); aaa (24920),,,529; Taxable; IRA; Trust; Roth IRA
+fact_transactions,txn_id,298772,0,0.0,298772,numeric,0,0.0,0,6,999999 (198773); 99999 (90000); 9999 (9000); 999 (900),1,298772,1; 2; 3; 4; 5
+fact_transactions,client_id,298772,0,0.0,2700,numeric,0,0.0,0,4,9999 (179565); 999 (107495); 99 (10792); 9 (920),1,3192,1; 2; 3; 4; 5
+fact_transactions,advisor_id,298772,0,0.0,25,numeric,0,0.0,0,2,99 (184906); 9 (113866),1,25,22; 25; 7; 20; 3
+fact_transactions,security_id,298772,101597,34.0,501,numeric,0,0.0,0,3,999.9 (157859); 99.9 (35626); 9.9 (3690),1.0,500.0,45.0; 174.0; 478.0; 406.0; 484.0
+fact_transactions,txn_date,298772,0,0.0,1826,date,0,0.0,0,1,9999-99-99 (298772),2020-01-01 00:00:00,2024-12-30 00:00:00,2023-12-16; 2024-12-10; 2023-04-03; 2023-07-21; 2024-06-26
+fact_transactions,txn_type,298772,0,0.0,6,text,0,0.0,0,6,aaa (83556); aaaa (59755); aaaaaaaa (53864); aaaaaaa (35981),,,Dividend; Deposit; Withdrawal; Advisory Fee; Sell
+fact_transactions,shares,298772,101597,34.0,193254,numeric,0,0.0,0,20,999.9999 (141451); 99.9999 (31852); 999.999 (14202); 9.9999 (3259),-499.6323,499.9981,455.1138; 37.0101; 315.4236; 466.9589; 457.4321
+fact_transactions,price,298772,101597,34.0,48105,numeric,0,0.0,0,4,999.99 (144856); 99.99 (32504); 999.9 (16162); 99.9 (3653),10.0,500.0,147.9; 212.62; 243.52; 305.91; 106.04
+fact_transactions,amount,298772,0,0.0,292741,numeric,0,0.0,0,10,99999.99 (165849); 999999.99 (42457); 9999.99 (39903); 999.99 (20008),13.33,249302.33,67311.33; 81363.28; 19881.98; 7130.27; 7869.09

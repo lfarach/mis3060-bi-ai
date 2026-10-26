@@ -1,0 +1,6 @@
+# HW4 deliverables are CSVs (clean tables, audit trail, reports), so
+# override the repo-wide *.csv rule for this folder only.
+!*.csv
+
+# Raw input files are the course-provided extract: not re-committed.
+data/raw/*.csv

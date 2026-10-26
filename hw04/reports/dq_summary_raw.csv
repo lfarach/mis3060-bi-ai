@@ -1,0 +1,107 @@
+severity,group,table,column,check,failed_rows,total_rows,failed_pct,example,note
+ERROR,1 Column,dim_client,state,value in allowed list,78,2525,3.089,Pennsylvania; Florida; New York,
+ERROR,1 Column,dim_client,risk_profile,required field not blank,76,2525,3.01,,
+ERROR,1 Column,fact_portfolio_snapshot,return_ytd,values not parseable as numeric,300,129547,0.232,9.28%; 19.52%; 13.35%,
+ERROR,1 Column,fact_transactions,security_id,ID stored as whole number,197175,197175,100.0,45.0; 174.0; 478.0,float-formatted IDs ('45.0') will not join to '45'
+ERROR,2 Single-table,dim_client,last_name,near-duplicate clients (all fields equal except name spelling),50,2525,1.98,2240:Collins; 2504:Collin; 2166:Armstrong; 2514:Armstron,pairs share every attribute; one copy has a truncated last name
+ERROR,2 Single-table,fact_transactions,shares,shares positive (direction is in txn_type),836,197175,0.424,Buy -261.9719; Buy -338.0946; Buy -360.8407,by type: {'Buy': 836}
+ERROR,3 Referential,fact_transactions,client_id,FK -> dim_client.client_id,200,298772,0.067,3191; 3017; 3058,"match 99.93%, 200 distinct orphan keys, null-key rate 0.00%"
+ERROR,3 Referential,fact_transactions,security_id,FK -> dim_security.security_id,197175,197175,100.0,45.0; 174.0; 478.0,"match 0.00%, 500 distinct orphan keys, null-key rate 34.00%; after int conversion only 0 orphans remain (format problem)"
+WARN,1 Column,fact_fees,bps_charged,"range [0, 100]",1,122197,0.001,100.38,
+WARN,1 Column,fact_portfolio_snapshot,return_ytd,number stored in scientific notation,135,129547,0.104,9.9e-05; 4.8e-05; -7.6e-05,"valid number, but inconsistent with plain decimals in the same column"
+WARN,1 Column,fact_portfolio_snapshot,active_alpha_ytd,number stored in scientific notation,756,129547,0.584,-1.9e-05; -2.2e-05; -6.9e-05,"valid number, but inconsistent with plain decimals in the same column"
+WARN,1 Column,fact_portfolio_snapshot,return_ytd,"range [-1, 1]",976,129247,0.755,2.872312; 2.946391; 2.885055,
+WARN,2 Single-table,fact_fees,aum_basis,placeholder value 1000.0,386,122197,0.316,,identical floor value across many clients/months
+WARN,2 Single-table,fact_portfolio_snapshot,aum,placeholder value 1000.0,420,129547,0.324,,identical floor value across many clients/months
+WARN,3 Referential,dim_client,client_id,client has activity in at least one fact table,25,2525,0.99,2501:Taylo; 2502:Marti; 2503:Jacobso,check against near-duplicate finding
+WARN,4 Cross-table,dim_client,risk_profile,clients with blank risk_profile (benchmark known),75,2500,3.0,,their snapshot benchmark_ids: {'3': 75}
+WARN,4 Cross-table,fact_transactions,txn_date,Buy/Sell on a trading day,40649,143311,28.364,,"weekend trades may be booking dates, not trade dates"
+INFO,2 Single-table,dim_advisor,certifications,literal 'None' = advisor has no certification,0,25,0.0,,"6 advisors; keep as text, not null"
+INFO,2 Single-table,fact_transactions,security_id/shares/price,blanks on cash rows are legitimate structure,0,101597,0.0,,"101,597 Deposit/Withdrawal/Advisory Fee rows correctly blank"
+INFO,3 Referential,fact_transactions,security_id,null FK -> dim_security.security_id,101582,298772,34.0,,see single-table check: nulls on cash rows are expected
+INFO,4 Cross-table,fact_fees,bps_charged,bps range by client tier,0,122197,0.0,,"{'HNW': '52.65-76.67', 'Retail': '74.87-100.38', 'UHNW': '25.56-49.54'}"
+INFO,4 Cross-table,fact_portfolio_snapshot,benchmark_id,each risk_profile maps to exactly one benchmark,0,5,0.0,,"{'Aggressive': '1', 'Balanced': '3', 'Conservative': '8', 'Moderately Aggressive': '1', 'Moderately Conservative': '8'}"
+PASS,1 Column,dim_advisor,advisor_id,primary key unique,0,25,0.0,,
+PASS,1 Column,dim_advisor,advisor_id,primary key not blank,0,25,0.0,,
+PASS,1 Column,dim_advisor,region,value in allowed list,0,25,0.0,,
+PASS,1 Column,dim_advisor,years_experience,"range [0, 50]",0,25,0.0,,
+PASS,1 Column,dim_benchmark,benchmark_id,primary key unique,0,8,0.0,,
+PASS,1 Column,dim_benchmark,benchmark_id,primary key not blank,0,8,0.0,,
+PASS,1 Column,dim_client,client_id,primary key unique,0,2525,0.0,,
+PASS,1 Column,dim_client,client_id,primary key not blank,0,2525,0.0,,
+PASS,1 Column,dim_client,risk_profile,value in allowed list,0,2525,0.0,,
+PASS,1 Column,dim_client,client_tier,value in allowed list,0,2525,0.0,,
+PASS,1 Column,dim_client,primary_account_type,value in allowed list,0,2525,0.0,,
+PASS,1 Column,dim_client,is_active,value in allowed list,0,2525,0.0,,
+PASS,1 Column,dim_client,state,required field not blank,0,2525,0.0,,
+PASS,1 Column,dim_client,advisor_id,required field not blank,0,2525,0.0,,
+PASS,1 Column,dim_client,age,"range [18, 110]",0,2525,0.0,,
+PASS,1 Column,dim_client,initial_aum,"range [0.01, None]",0,2525,0.0,,
+PASS,1 Column,dim_client,advisor_id,ID stored as whole number,0,2525,0.0,,float-formatted IDs ('45.0') will not join to '45'
+PASS,1 Column,dim_date,date_id,primary key unique,0,1827,0.0,,
+PASS,1 Column,dim_date,date_id,primary key not blank,0,1827,0.0,,
+PASS,1 Column,dim_security,security_id,primary key unique,0,500,0.0,,
+PASS,1 Column,dim_security,security_id,primary key not blank,0,500,0.0,,
+PASS,1 Column,dim_security,asset_class,value in allowed list,0,500,0.0,,
+PASS,1 Column,dim_security,is_etf,value in allowed list,0,500,0.0,,
+PASS,1 Column,dim_security,expense_ratio_bps,"range [0, 300]",0,219,0.0,,
+PASS,1 Column,dim_security,benchmark_id,ID stored as whole number,0,500,0.0,,float-formatted IDs ('45.0') will not join to '45'
+PASS,1 Column,fact_fees,fee_id,primary key unique,0,122197,0.0,,
+PASS,1 Column,fact_fees,fee_id,primary key not blank,0,122197,0.0,,
+PASS,1 Column,fact_fees,fee_type,value in allowed list,0,122197,0.0,,
+PASS,1 Column,fact_fees,amount,required field not blank,0,122197,0.0,,
+PASS,1 Column,fact_fees,amount,"range [0.01, None]",0,122197,0.0,,
+PASS,1 Column,fact_fees,aum_basis,"range [0.01, None]",0,122197,0.0,,
+PASS,1 Column,fact_fees,client_id,ID stored as whole number,0,122197,0.0,,float-formatted IDs ('45.0') will not join to '45'
+PASS,1 Column,fact_portfolio_snapshot,snapshot_id,primary key unique,0,129547,0.0,,
+PASS,1 Column,fact_portfolio_snapshot,snapshot_id,primary key not blank,0,129547,0.0,,
+PASS,1 Column,fact_portfolio_snapshot,account_type,value in allowed list,0,129547,0.0,,
+PASS,1 Column,fact_portfolio_snapshot,aum,required field not blank,0,129547,0.0,,
+PASS,1 Column,fact_portfolio_snapshot,aum,"range [0.01, None]",0,129547,0.0,,
+PASS,1 Column,fact_portfolio_snapshot,cash_pct,"range [0, 1]",0,129547,0.0,,
+PASS,1 Column,fact_portfolio_snapshot,benchmark_return_ytd,"range [-1, 1]",0,129547,0.0,,
+PASS,1 Column,fact_portfolio_snapshot,client_id,ID stored as whole number,0,129547,0.0,,float-formatted IDs ('45.0') will not join to '45'
+PASS,1 Column,fact_transactions,txn_id,primary key unique,0,298772,0.0,,
+PASS,1 Column,fact_transactions,txn_id,primary key not blank,0,298772,0.0,,
+PASS,1 Column,fact_transactions,txn_type,value in allowed list,0,298772,0.0,,
+PASS,1 Column,fact_transactions,client_id,required field not blank,0,298772,0.0,,
+PASS,1 Column,fact_transactions,amount,required field not blank,0,298772,0.0,,
+PASS,1 Column,fact_transactions,price,"range [0.01, None]",0,197175,0.0,,
+PASS,1 Column,fact_transactions,amount,"range [0.01, None]",0,298772,0.0,,
+PASS,1 Column,fact_transactions,client_id,ID stored as whole number,0,298772,0.0,,float-formatted IDs ('45.0') will not join to '45'
+PASS,2 Single-table,dim_advisor,(all),exact duplicate rows (excluding key),0,25,0.0,,
+PASS,2 Single-table,dim_benchmark,(all),exact duplicate rows (excluding key),0,8,0.0,,
+PASS,2 Single-table,dim_client,(all),exact duplicate rows (excluding key),0,2525,0.0,,
+PASS,2 Single-table,dim_date,(all),exact duplicate rows (excluding key),0,1827,0.0,,
+PASS,2 Single-table,dim_date,(derived cols),calendar attributes match the date,0,1827,0.0,,
+PASS,2 Single-table,dim_security,(all),exact duplicate rows (excluding key),0,500,0.0,,
+PASS,2 Single-table,dim_security,sector,sector blank if and only if ETF,0,500,0.0,,219 blank sectors are all ETFs -> legitimate structure
+PASS,2 Single-table,dim_security,expense_ratio_bps,expense ratio present if and only if ETF,0,500,0.0,,281 blanks are all non-ETFs -> legitimate structure
+PASS,2 Single-table,fact_fees,(all),exact duplicate rows (excluding key),0,122197,0.0,,
+PASS,2 Single-table,fact_fees,client_id+fee_date+fee_type,one fee per client/month/type,0,122197,0.0,,
+PASS,2 Single-table,fact_fees,amount,amount = aum_basis x bps / 10000 / 12,0,122197,0.0,,
+PASS,2 Single-table,fact_portfolio_snapshot,(all),exact duplicate rows (excluding key),0,129547,0.0,,
+PASS,2 Single-table,fact_portfolio_snapshot,client_id+snapshot_date,one snapshot per client per month,0,129547,0.0,,
+PASS,2 Single-table,fact_portfolio_snapshot,year/month,year & month match snapshot_date,0,129547,0.0,,
+PASS,2 Single-table,fact_portfolio_snapshot,active_alpha_ytd,alpha = return_ytd - benchmark_return_ytd,0,129247,0.0,,"300 rows could not be checked (unparseable input, e.g. '%' text); they are re-checked after cleaning in 03_validate.py"
+PASS,2 Single-table,fact_transactions,(all),exact duplicate rows (excluding key),0,298772,0.0,,
+PASS,2 Single-table,fact_transactions,security_id/shares/price,"trade rows have security, shares and price",0,197175,0.0,,
+PASS,2 Single-table,fact_transactions,security_id/shares/price,cash rows (Deposit/Withdrawal/Fee) have no security,0,101597,0.0,,
+PASS,2 Single-table,fact_transactions,amount,trade amount = |shares| x price,0,197175,0.0,,
+PASS,3 Referential,dim_client,advisor_id,FK -> dim_advisor.advisor_id,0,2525,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,dim_security,benchmark_id,FK -> dim_benchmark.benchmark_id,0,500,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_fees,client_id,FK -> dim_client.client_id,0,122197,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_fees,advisor_id,FK -> dim_advisor.advisor_id,0,122197,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_fees,fee_date,FK -> dim_date.date,0,122197,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_portfolio_snapshot,client_id,FK -> dim_client.client_id,0,129547,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_portfolio_snapshot,advisor_id,FK -> dim_advisor.advisor_id,0,129547,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_portfolio_snapshot,benchmark_id,FK -> dim_benchmark.benchmark_id,0,129547,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_portfolio_snapshot,snapshot_date,FK -> dim_date.date,0,129547,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_transactions,advisor_id,FK -> dim_advisor.advisor_id,0,298772,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,3 Referential,fact_transactions,txn_date,FK -> dim_date.date,0,298772,0.0,,"match 100.00%, 0 distinct orphan keys, null-key rate 0.00%"
+PASS,4 Cross-table,fact_fees,advisor_id,advisor matches dim_client.advisor_id,0,122197,0.0,,
+PASS,4 Cross-table,fact_fees,aum_basis,"fee aum_basis = snapshot aum (same client, month)",0,122197,0.0,,
+PASS,4 Cross-table,fact_portfolio_snapshot,advisor_id,advisor matches dim_client.advisor_id,0,129547,0.0,,
+PASS,4 Cross-table,fact_portfolio_snapshot,account_type,account_type matches dim_client.primary_account_type,0,129547,0.0,,
+PASS,4 Cross-table,fact_transactions,advisor_id,advisor matches dim_client.advisor_id,0,298572,0.0,,
+PASS,4 Cross-table,fact_transactions,txn_date,txn_date on/after client_since,0,298572,0.0,,
