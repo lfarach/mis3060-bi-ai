@@ -1,0 +1,11 @@
+stage,reconciliation,rows_compared,matched,match_pct
+raw,R1 fee amount = aum_basis x bps / 10000 / 12,122197,122197,100.0
+raw,R2 fees.aum_basis = snapshot.aum (same client & month),122197,122197,100.0
+raw,R3 alpha = return_ytd - benchmark_return_ytd,129547,129247,99.77
+raw,R4 trade amount = shares x price,197175,196339,99.58
+raw,R5 transactions.advisor_id = dim_client.advisor_id,298772,298572,99.93
+clean,R1 fee amount = aum_basis x bps / 10000 / 12,122197,122197,100.0
+clean,R2 fees.aum_basis = snapshot.aum (same client & month),122197,122197,100.0
+clean,R3 alpha = return_ytd - benchmark_return_ytd,129547,129547,100.0
+clean,R4 trade amount = shares x price,197044,197044,100.0
+clean,R5 transactions.advisor_id = dim_client.advisor_id,298572,298572,100.0

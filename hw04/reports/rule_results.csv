@@ -1,0 +1,63 @@
+stage,table,rule,evaluated,failed,pass_pct
+raw,dim_advisor,years_experience 0-50,25,0,100.0
+raw,dim_advisor,aum_target_mm > 0,25,0,100.0
+raw,dim_advisor,region in list,25,0,100.0
+raw,dim_benchmark,asset_class not blank,8,0,100.0
+raw,dim_client,age 18-110,2525,0,100.0
+raw,dim_client,initial_aum > 0,2525,0,100.0
+raw,dim_client,state is USPS code,2525,78,96.91
+raw,dim_client,risk_profile in list (not blank),2525,76,96.99
+raw,dim_client,client_tier in list,2525,0,100.0
+raw,dim_client,account type in list,2525,0,100.0
+raw,dim_client,client_since <= 2024-12-31,2525,0,100.0
+raw,dim_date,quarter 1-4,1827,0,100.0
+raw,dim_date,month 1-12,1827,0,100.0
+raw,dim_date,day_of_week matches date,1827,0,100.0
+raw,dim_security,asset_class in list,500,0,100.0
+raw,dim_security,expense_ratio_bps 0-300,219,0,100.0
+raw,dim_security,sector blank iff ETF,500,0,100.0
+raw,fact_fees,fee_type in list,122197,0,100.0
+raw,fact_fees,bps_charged 0-100,122197,1,100.0
+raw,fact_fees,amount > 0,122197,0,100.0
+raw,fact_fees,aum_basis > 0,122197,0,100.0
+raw,fact_portfolio_snapshot,aum > 0,129547,0,100.0
+raw,fact_portfolio_snapshot,cash_pct 0-1,129547,0,100.0
+raw,fact_portfolio_snapshot,return_ytd >= -100%,129247,0,100.0
+raw,fact_portfolio_snapshot,account_type in list,129547,0,100.0
+raw,fact_portfolio_snapshot,month 1-12,129547,0,100.0
+raw,fact_transactions,txn_type in list,298772,0,100.0
+raw,fact_transactions,amount > 0,298772,0,100.0
+raw,fact_transactions,price > 0,197175,0,100.0
+raw,fact_transactions,shares > 0 (sign rule),197175,836,99.58
+raw,fact_transactions,txn_date 2020-2024,298772,0,100.0
+clean,dim_advisor,years_experience 0-50,25,0,100.0
+clean,dim_advisor,aum_target_mm > 0,25,0,100.0
+clean,dim_advisor,region in list,25,0,100.0
+clean,dim_benchmark,asset_class not blank,8,0,100.0
+clean,dim_client,age 18-110,2500,0,100.0
+clean,dim_client,initial_aum > 0,2500,0,100.0
+clean,dim_client,state is USPS code,2500,0,100.0
+clean,dim_client,risk_profile in list (not blank),2500,0,100.0
+clean,dim_client,client_tier in list,2500,0,100.0
+clean,dim_client,account type in list,2500,0,100.0
+clean,dim_client,client_since <= 2024-12-31,2500,0,100.0
+clean,dim_date,quarter 1-4,1827,0,100.0
+clean,dim_date,month 1-12,1827,0,100.0
+clean,dim_date,day_of_week matches date,1827,0,100.0
+clean,dim_security,asset_class in list,500,0,100.0
+clean,dim_security,expense_ratio_bps 0-300,219,0,100.0
+clean,dim_security,sector blank iff ETF,500,0,100.0
+clean,fact_fees,fee_type in list,122197,0,100.0
+clean,fact_fees,bps_charged 0-100,122197,1,100.0
+clean,fact_fees,amount > 0,122197,0,100.0
+clean,fact_fees,aum_basis > 0,122197,0,100.0
+clean,fact_portfolio_snapshot,aum > 0,129547,0,100.0
+clean,fact_portfolio_snapshot,cash_pct 0-1,129547,0,100.0
+clean,fact_portfolio_snapshot,return_ytd >= -100%,129547,0,100.0
+clean,fact_portfolio_snapshot,account_type in list,129547,0,100.0
+clean,fact_portfolio_snapshot,month 1-12,129547,0,100.0
+clean,fact_transactions,txn_type in list,298572,0,100.0
+clean,fact_transactions,amount > 0,298572,0,100.0
+clean,fact_transactions,price > 0,197044,0,100.0
+clean,fact_transactions,shares > 0 (sign rule),197044,0,100.0
+clean,fact_transactions,txn_date 2020-2024,298572,0,100.0
