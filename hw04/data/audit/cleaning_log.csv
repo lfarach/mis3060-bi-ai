@@ -1,0 +1,18 @@
+table,issue,action,rows_affected,note
+fact_transactions,security_id stored as float text ('45.0'),convert to whole number,197175,verified: 100% now match dim_security
+fact_portfolio_snapshot,return_ytd stored as percent text,convert: strip % and /100,300,verified: alpha = return - benchmark holds for all converted rows
+fact_portfolio_snapshot,return_ytd in scientific notation,standardize to plain decimal,135,numeric value unchanged (checked to 1e-9)
+fact_portfolio_snapshot,active_alpha_ytd in scientific notation,standardize to plain decimal,756,numeric value unchanged (checked to 1e-9)
+dim_client,near-duplicate clients (last name off by one letter),quarantine,25,"verified: 7 fields identical; kept the copy with fact activity, quarantined the unused copy"
+fact_transactions,client_id not in dim_client,quarantine,200,cannot assign the money to a client without inventing data
+dim_client,state stored as full name,standardize to USPS code,77,
+dim_client,risk_profile blank,fill from benchmark + flag risk_profile_inferred,75,filled values: {'Balanced': 75}; 0 left blank (no benchmark evidence)
+fact_transactions,negative shares on Buy rows,convert to absolute value,835,verified against amount = |shares| x price
+fact_portfolio_snapshot,aum = 1000.0 placeholder,flag aum_placeholder_flag,420,real AUM unknown; value kept
+fact_fees,aum_basis = 1000.0 placeholder,flag aum_placeholder_flag,386,real AUM unknown; value kept
+fact_portfolio_snapshot,return_ytd beyond +/-100%,flag return_outlier_flag,977,internally consistent with alpha; likely deposits counted as gains on small accounts
+fact_fees,bps_charged 100.38 (1 row),leave as is,0,inside Retail band; fee math reconciles
+fact_transactions,Buy/Sell dated on weekends,leave as is,0,likely booking dates; true trade date unknown
+dim_security,sector/expense_ratio blanks,leave as is,0,legitimate: ETF vs non-ETF structure
+fact_transactions,security/shares/price blank on cash rows,leave as is,0,legitimate: no security on cash moves
+dim_advisor,certifications = 'None',leave as is,0,legitimate value meaning no certification

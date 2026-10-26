@@ -1,0 +1,9 @@
+table,raw_rows,clean_rows,quarantined_rows
+dim_advisor,25,25,0
+dim_benchmark,8,8,0
+dim_client,2525,2500,25
+dim_date,1827,1827,0
+dim_security,500,500,0
+fact_fees,122197,122197,0
+fact_portfolio_snapshot,129547,129547,0
+fact_transactions,298772,298572,200
