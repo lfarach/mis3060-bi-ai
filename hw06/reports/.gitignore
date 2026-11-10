@@ -1,0 +1,3 @@
+# The root .gitignore excludes *.csv; these two are required HW6 deliverables
+!powerbi_values.csv
+!measure_reconciliation.csv
